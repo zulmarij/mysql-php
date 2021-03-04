@@ -1,8 +1,11 @@
 <?php
 
-include('connection.php');
+include('connection.php'); // Koneksi database
 
-$query = mysqli_query($connect, "SELECT * FROM karyawan");
+$keyword = $_GET['keyword']; // Mengambil keyword yang dikirim dari form
+
+$query = mysqli_query($connect, "SELECT * FROM karyawan WHERE nama='$keyword'"); // Mengambil data pada database berdasarkan nama sesuai keyword yang ditampung pada variabel $keyword.
+
 $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
 ?>
 
@@ -11,10 +14,8 @@ $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
 <body>
     <a href="add.php">Tambah Data</a>
 
-    <br /><br />
-
     <form action="search.php" method="GET">
-        <input type="text" name="keyword" placeholder="Keyword .." />
+        <input type="text" name="keyword" placeholder="Keyword .." value="<?php echo $_GET['keyword'] ?>" />
         <button type="submit">Search</button>
     </form>
     <table border="1">

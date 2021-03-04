@@ -9,7 +9,7 @@
     <br /><br />
 
     <label>Umur</label><br />
-    <input type="text" name="umur" />
+    <input type="number" name="umur" />
     <br /><br />
 
     <label>Jenis Kelamin</label><br />
